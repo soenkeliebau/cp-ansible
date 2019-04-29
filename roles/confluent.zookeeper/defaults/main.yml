@@ -4,6 +4,7 @@ zookeeper:
   config_file: /etc/kafka/zookeeper.properties
   service_name: confluent-zookeeper
   systemd_override: /etc/systemd/system/confluent-zookeeper.service.d
+  auto_generate_zk_serverid: true
   config:
     maxClientCnxns: 0
     initLimit: 5

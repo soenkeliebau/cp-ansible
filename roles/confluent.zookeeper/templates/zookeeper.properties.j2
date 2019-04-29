@@ -3,5 +3,10 @@
 {{key}}={{value}}
 {% endfor %}
 {% for host in groups['zookeeper'] %}
-server.{{ loop.index }}={{ host }}:2888:3888
+  {%- if auto_generate_zk_serverid -%}
+    server.{{ loop.index }}={{ host }}:2888:3888
+  {%- else -%}
+    server.{{ hostvars[host]['zookeeper']['id'] }}={{ host }}:2888:3888
+  {%- endif %}
+
 {% endfor %}

@@ -1,5 +1,9 @@
+{% if auto_generate_zk_serverid %}
 {% for host in groups['zookeeper'] %}
 {% if host == inventory_hostname %}
 {{ loop.index }}
 {% endif %}
 {% endfor %}
+{% else %}
+{{ zookeeper.id }}
+{% endif %}
