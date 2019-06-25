@@ -14,6 +14,8 @@
   tasks:
   - import_role:
       name: confluent.zookeeper
+    tags:
+      - zookeeper
 - hosts: broker
   tasks:
   - import_role:
